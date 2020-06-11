@@ -8,10 +8,18 @@
 <body>
 <div id="app">
     <h1>{{ title }}</h1>
+    <line-chart :messages="messages"></line-chart>
+    <p>{{messages}}</p>
 </div>
 <script src="./js/vue.js"></script>
+<script src="./js/vuex.js"></script>
 <script src="./js/Chart.min.js"></script>
 <script src="./js/vue-chartjs.min.js"></script>
-<script src="./js/script.js"></script>
+
+<script type="module" src="js/store/index.js"></script>
+
+<script type="module" src="./js/components/LineChart.js"></script>
+
+<script type="module" src="js/app.js"></script>
 </body>
 </html>
