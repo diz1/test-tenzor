@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
 <div id="app">
-    <h1>{{ title }}</h1>
-    <line-chart :messages="messages"></line-chart>
-    <p>{{messages}}</p>
+    <div class="sk-rotating-plane loader" v-if="!messages.length"></div>
+    <div class="chart" v-cloak v-else>
+        <h1>{{ title }}</h1>
+        <line-chart :messages="messages"></line-chart>
+    </div>
 </div>
 <script src="./js/vue.js"></script>
 <script src="./js/vuex.js"></script>

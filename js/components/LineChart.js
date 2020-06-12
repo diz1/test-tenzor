@@ -17,24 +17,42 @@ Vue.component('line-chart', {
             this.renderChart({
                 labels: this.time,
                 datasets: [{
-                    label: 'Напряжение: ',
+                    label: 'Напряжение',
                     data: this.voltage,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(99,205,245,0.47)',
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
+                        'rgb(99,138,255)',
                     ],
-                    borderWidth: 2
+                    borderWidth: 1
                 }]
-            }, {
+            },{
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
-                        }
+                            callback: function(value, index, values) {
+                                return value + ' В';
+                            }
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Напряжение, В'
+                        },
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return value + ' с';
+                            },
+                            sampleSize: 10
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Время, с'
+                        },
                     }]
                 }
             })
